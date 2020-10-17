@@ -1,11 +1,16 @@
 import React from 'react';
+import Sidebar from './components/sidebar/Sidebar';
+import Content from './components/content/Content';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Hola Mundo!</h1>
-      </header>
+    <div id="wrapper">
+  
+      <Sidebar />
+  
+      <Content />
+  
     </div>
   );
 }
