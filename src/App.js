@@ -14,16 +14,20 @@ class App extends Component {
   }
 
   componentDidMount () {
-    // Fetch productos
-    fetch('http://localhost:3000/api/products')
+    let productsFetch = fetch('http://localhost:3000/api/products');
+    let usersFetch = fetch('http://localhost:3000/api/users');
+
+    Promise.all([productsFetch, usersFetch])
       .then(res => {
-        return res.json();
+        let resJSON = Promise.all(res.map(r => r.json()));
+        return resJSON
       })
       .then(
-        (products) => {
+        res => {
           this.setState({
             isLoaded: true,
-            products: products
+            products: res[0],
+            users: res[1]
           })
         },
         // Nota: es importante manejar errores aquí y no en 
@@ -36,32 +40,10 @@ class App extends Component {
           });
         }
       )
-
-      // Fetch usuarios
-      fetch('http://localhost:3000/api/users')
-        .then(res => {
-          return res.json();
-        })
-        .then(
-          (users) => {
-            this.setState({
-              isLoaded: true,
-              users: users
-            })
-          },
-          // Nota: es importante manejar errores aquí y no en 
-          // un bloque catch() para que no interceptemos errores
-          // de errores reales en los componentes.
-          (error) => {
-            this.setState({
-              isLoaded: true,
-              error
-            });
-          }
-        )
   }
 
   render () {
+    console.log('Render method');
     const { error, isLoaded, products, users } = this.state;
     if (error) {
       return <div>Error: {error.message}</div>;
@@ -74,7 +56,7 @@ class App extends Component {
           <Sidebar />
       
           <Content />
-      
+
         </div>
       );
     }
