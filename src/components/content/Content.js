@@ -3,23 +3,30 @@ import Navbar from './navbar/Navbar'
 import Main from './main/Main'
 import Footer from './footer/Footer'
 
-function Content() {
+function Content(props) {
   return (
     <>
-        {/* Content Wrapper */}
-        <div id="content-wrapper" className="d-flex flex-column">
-            {/* Main Content */}
-            <div id="content">
-                
-              <Navbar />
-                
-              <Main />
+        
+      <div id="content-wrapper" className="d-flex flex-column">
+          
+        <div id="content">
+            
+          <Navbar />
+            
+          <Main 
+          
+            products={props.products}
 
-            </div>
-            {/* End of Main Content */}
-                <Footer />
+            users={props.users}
+
+          />
+
         </div>
-        {/* End of Content Wrapper */}
+
+        <Footer />
+
+      </div>
+
     </>
   );
 }

@@ -55,7 +55,13 @@ class App extends Component {
 
           <Sidebar />
       
-          <Content />
+          <Content 
+          
+            products={products}
+
+            users={users}
+            
+          />
 
         </div>
       );

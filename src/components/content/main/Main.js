@@ -5,36 +5,37 @@ import LastProductsCards from './cards/LastProductsCard';
 import CategoriesCards from './cards/categories/CategoriesCards';
 import Products from './products/Products'
 
-function Main() {
-  const values = [
+function Main(props) {
+  console.log(props);
+  const cardsValues = [
     {
-      name: 'Products in Data Base', 
-      value: 135, 
+      name: 'Total de productos', 
+      value: props.products.meta.count, 
       icon: 'fas fa-clipboard-list', 
       color: 'primary'
     },
     {
-      name: 'Amount in products', 
-      value: '$546.456', 
-      icon: 'fas fa-dollar-sign', 
-      color: 'success' 
+      name: 'Total de usuarios', 
+      value: props.users.meta.count, 
+      icon: 'fas fa-user-check', 
+      color: 'warning'
     },
     {
-      name: 'Users quantity', 
+      name: 'Total de categorías', 
       value: 38, 
-      icon: 'fas fa-user-check', 
-      color: 'warning' 
+      icon: 'fas fa-database', 
+      color: 'info' 
     },
   ]
   return (
     <>
         <div className="container-fluid">
             
-          <Title title=''/>
+          <Title title='Workplace Station Dashboard'/>
 
           <div className="row">
 
-            {values.map((value, i) => <Cards key={`${i}-value`} value={value}/>)}
+            {cardsValues.map((value, i) => <Cards key={`${i}-value`} value={value}/>)}
 
           </div>
 
