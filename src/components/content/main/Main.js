@@ -41,7 +41,7 @@ function Main(props) {
 
           <div className="row">
               
-            <LastProductsCards />
+            <LastProductsCards lastProduct={props.products.meta.lastProduct}/>
 
             <CategoriesCards />
 
