@@ -1,8 +1,9 @@
 import React from 'react';
 import Cards from './Cards'
 
-function Categories() {
-  return (
+function Categories(props) {
+    console.log(props);
+    return (
     <>
         <div className="col-lg-6 mb-4">						
             <div className="card shadow mb-4">
@@ -11,7 +12,8 @@ function Categories() {
                 </div>
                 <div className="card-body">
                     <div className="row">
-                        <Cards />
+                        {props.productsCategories.map((category) => <Cards key={`${category.id}-categorie`} value={category}/>)}
+                        {/* <Cards /> */}
                     </div>
                 </div>
             </div>

@@ -19,6 +19,8 @@ function Content(props) {
 
             users={props.users}
 
+            purchases={props.purchases}
+
           />
 
         </div>

@@ -4,11 +4,10 @@ function ProductsHeader() {
   return (
     <thead>
         <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Price</th>
-        <th>Categories</th>
-        <th>Colors</th>
+        <th>Nombre</th>
+        <th>Breve Descripción</th>
+        <th>Precio</th>
+        <th>Descuento</th>
         <th>Stock</th>
         </tr>
     </thead>

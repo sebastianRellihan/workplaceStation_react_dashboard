@@ -9,15 +9,17 @@ class App extends Component {
       error: null,
       isLoaded: false,
       products: "",
-      users: ""
+      users: "",
+      purchases: ""
     }
   }
 
   componentDidMount () {
     let productsFetch = fetch('http://localhost:3000/api/products');
     let usersFetch = fetch('http://localhost:3000/api/users');
+    let purchasesFetch = fetch('http://localhost:3000/api/purchases');
 
-    Promise.all([productsFetch, usersFetch])
+    Promise.all([productsFetch, usersFetch, purchasesFetch])
       .then(res => {
         let resJSON = Promise.all(res.map(r => r.json()));
         return resJSON
@@ -27,7 +29,8 @@ class App extends Component {
           this.setState({
             isLoaded: true,
             products: res[0],
-            users: res[1]
+            users: res[1],
+            purchases: res[2]
           })
         },
         // Nota: es importante manejar errores aquí y no en 
@@ -43,8 +46,7 @@ class App extends Component {
   }
 
   render () {
-    console.log('Render method');
-    const { error, isLoaded, products, users } = this.state;
+    const { error, isLoaded, products, users, purchases } = this.state;
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
@@ -60,6 +62,8 @@ class App extends Component {
             products={products}
 
             users={users}
+
+            purchases={purchases}
             
           />
 

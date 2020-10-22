@@ -2,11 +2,10 @@ import React from 'react';
 import Title from './Title';
 import Cards from './cards/Cards';
 import LastProductsCards from './cards/LastProductsCard';
-import CategoriesCards from './cards/categories/CategoriesCards';
+import CategoriesInDataBase from './cards/categories/CategoriesInDataBase';
 import Products from './products/Products'
 
 function Main(props) {
-  console.log(props);
   const cardsValues = [
     {
       name: 'Total de productos', 
@@ -15,17 +14,35 @@ function Main(props) {
       color: 'primary'
     },
     {
+      name: 'Total de categorías', 
+      value: props.products.meta.categories.length, 
+      icon: 'fas fa-layer-group', 
+      color: 'info' 
+    },
+    {
       name: 'Total de usuarios', 
       value: props.users.meta.count, 
       icon: 'fas fa-user-check', 
       color: 'warning'
     },
     {
-      name: 'Total de categorías', 
-      value: 38, 
-      icon: 'fas fa-database', 
-      color: 'info' 
+      name: 'Total de ventas', 
+      value: props.purchases.meta.count, 
+      icon: 'fas fa-handshake', 
+      color: 'success'
     },
+    {
+      name: 'Total de productos vendidos', 
+      value: props.purchases.meta.totalSales, 
+      icon: 'fas fa-shopping-cart', 
+      color: 'primary'
+    },
+    {
+      name: 'Ingreso acumulado en ventas', 
+      value: props.purchases.meta.totalRevenue, 
+      icon: 'fas fa-dollar-sign', 
+      color: 'success'
+    }
   ]
   return (
     <>
@@ -43,7 +60,7 @@ function Main(props) {
               
             <LastProductsCards lastProduct={props.products.meta.lastProduct}/>
 
-            <CategoriesCards />
+            <CategoriesInDataBase productsCategories={props.products.meta.categories}/>
 
           </div>
 
@@ -52,7 +69,7 @@ function Main(props) {
           <div className="card shadow mb-4">
             <div className="card-body">
               
-              <Products />
+              <Products products={props.products.data}/>
 
             </div>
           </div>
