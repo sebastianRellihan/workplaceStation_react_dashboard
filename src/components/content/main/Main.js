@@ -62,17 +62,9 @@ function Main(props) {
 
             <CategoriesInDataBase productsCategories={props.products.meta.categories}/>
 
-          </div>
-
-          <h1 className="h3 mb-2 text-gray-800">All the products in the Database</h1>
-          
-          <div className="card shadow mb-4">
-            <div className="card-body">
+          </div>          
               
-              <Products products={props.products.data}/>
-
-            </div>
-          </div>
+          <Products products={props.products.data}/>
 
         </div>
     </>

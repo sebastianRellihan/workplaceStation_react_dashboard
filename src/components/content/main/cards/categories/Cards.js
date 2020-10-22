@@ -9,7 +9,7 @@ function Cards(props) {
             <div className="card-body">
               <h6>{props.value.id}. {props.value.name}:</h6>
               <br></br>
-              <p className="text-center text-dark">{props.value.productsAmount}</p>
+              <p className="text-center text-dark"><strong>{props.value.productsAmount}</strong></p>
             </div>
             </div>
         </div>

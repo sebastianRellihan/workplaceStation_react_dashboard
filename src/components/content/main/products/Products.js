@@ -3,30 +3,21 @@ import ProductsHeader from './ProductsHeader';
 import ProductsRows from './ProductsRows';
 
 function Products(props) {
-  // let products = [
-  //   { 
-  //     name: 'Tiger Nixon', 
-  //     description: 'System Architect', 
-  //     price: 320800, 
-  //     categories: ['Category 01','Category 02','Category 03'],
-  //     colors: [{ name: 'Red', color: 'danger' }, { name: 'Blue', color: 'primary' }, { name: 'Green', color: 'success' }],
-  //     stock: 245
-  //   },
-  //   { 
-  //     name: 'Jane Doe', 
-  //     description: 'Fullstack Developer', 
-  //     price: 320800, 
-  //     categories: ['Category 01','Category 02','Category 03'],
-  //     colors: [{ name: 'Red', color: 'danger' }, { name: 'Blue', color: 'primary' }, { name: 'Green', color: 'success' }],
-  //     stock: 245
-  //   }
-  // ];
   return (
-    <div className="table-responsive">
-        <table className="table table-bordered" id="dataTable" width="100%" cellSpacing={0}>
-            <ProductsHeader />
-            <ProductsRows products= {props.products}/>
-        </table>
+    <div className="col-lg-12 mb-4">
+      <div className="card shadow mb-4">
+          <div className="card-header py-3">
+              <h6 className="m-0 font-weight-bold text-primary">Tabla de productos</h6>
+          </div>
+          <div className="card-body">
+            <div className="table-responsive">
+              <table className="table table-bordered" id="dataTable" width="100%" cellSpacing={0}>
+                  <ProductsHeader />
+                  <ProductsRows products= {props.products}/>
+              </table>
+            </div>
+          </div>
+      </div>
     </div>
   );
 }
