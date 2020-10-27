@@ -1,68 +1,32 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# WorkplaceStation Dashboard
 
-## Available Scripts
+Aplicación SPA creada para funcionar como dashboard de monitoreo del sitio [WorkplaceStation](https://github.com/sebastianRellihan/grupo_8_workplaceStation).
 
-In the project directory, you can run:
+Proyecto autogenerado con [Create React App](https://github.com/facebook/create-react-app).
+
+## Scripts
 
 ### `npm start`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Ejecuta la aplicación en modo de desarrollo. Este proceso correrá en el puerto especificado en la variable **PORT** del archivo **.env**
+ó en el puerto **3000** en caso de que no se haya especificado, y será accesible por un navegador a través de **localhost:PORT**.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+En tiempo de ejecución, se recargará automáticamente la página al editar algún archivo.
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Transpila, interpreta y minifica los archivos del proyecto, dejando una versión accesible en la carpeta **build** en la raíz del proyecto.
+Los archivos generados pueden servirse de forma estática si se ponen a disposición en la carpeta **pública** de un servidor funcional.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Integración con WorkplaceStation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Si bien es posible (y recomendable) correr el servicio en un proceso aparte, bajo necesidad también se puede integrar con el servidor de
+**WorkplaceStation**, contando además con las ventajas de autorización y facilitando el consumo de la **API HTTP** que provée éste.
+Para esto, se deben seguir los siguientes pasos:
 
-### `npm run eject`
+- Toda la carpeta **build** (y no sólo su contenido) deben guardarse dentro de la carpeta [site/public](https://github.com/sebastianRellihan/grupo_8_workplaceStation/tree/master/site/public).
+- El archivo **index.html** generado debe encontrarse dentro de la carpeta [site/src/views/main](https://github.com/sebastianRellihan/grupo_8_workplaceStation/tree/master/site/src/views/main) bajo el nombre **dashboard.ejs**, haciendo algunas modificaciones para las que se puede tomar como ejemplo el propio archivo
+[dashboard.ejs](https://github.com/sebastianRellihan/grupo_8_workplaceStation/blob/master/site/src/views/main/dashboard.ejs) que ya se encuentra integrado.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Al correr el servidor de **WorkplaceStation**, se debería poder acceder a la nueva versión del dashboard a través de la URL **/dashboard**, sólo disponible
+para usuarios con nivel de permisos de **ADMIN**.
